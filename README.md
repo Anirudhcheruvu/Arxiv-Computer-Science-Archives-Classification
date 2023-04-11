@@ -10,13 +10,13 @@ Our goal is now to classify the research papers from Computer Science specifical
 
 Let us look at the steps we have taken in collecting the data, processing it, and building the model.
 
-1. **Scraping:** 
+# 1. **Scraping:** 
 
 Using the arXiv API we scraped to the latest paper of Computer Science field by the order of the submitted date. Here we obtain a total of 200 latest papers belonging to the four sub-fields listed above, and we mainly stored two attributes, title and summary of the paper. We obtained a CSV file with dimensions 200 X 2. It is to be noted that there is a limit of 100 words for each summary. 
 
 Now let us look into how labeling has been done on the above data and what steps have been taken.
 
-1. **Labelling:**
+# 2. **Labelling:**
 
 Here the two annotators are given with the task of labelling 200 latest research papers of Computer Science into 4 subfields Artificial Intelligence (AI), Cryptography and Security (CT), Computation & Languages (CL), Databases (DB). The annotators are unaware of which subfield research papers belong to. Then they are given with the excel sheet to label. Below is the format for the attributes.
 
@@ -61,7 +61,7 @@ Note that research papers cannot be confined to a single sub-field in Computer S
 
 After discussing thoroughly between each other, we have commonly agreed on a set of labels for each of the 200 records and from now on we use this set of labels while we train, test and validate the model.
 
-1. **Text Processing**
+# 3. **Text Processing**
 
 After scraping we have obtained a CSV file which title and summary on which we now have to apply some text processing. We standardize the text by removing punctuations and numbers, single characters and multiple spaces as seen in the below code.
 
@@ -92,7 +92,7 @@ Here X\_train and X\_test are input text strings and y\_train and y\_test are co
 
 Here the labels are converted into binary class matrix which can be then used for the model.
 
-1. Model
+# 4. Model
 
 The model we used is identical to the model used for classification on reuters dataset given in the course textbook. For the model we used 3 dense layers where the 1st layer has 64 neurons with the activation function as relu. The 2nd layer is similar to the 1st layer and has 64 neurons with the activation function as relu. The 3rd layer has 4 nodes which correspond to the 4 classes in our data and has softmax activation function.
 
@@ -114,7 +114,7 @@ Now we fit the model by having a batch size of 10 and 20 epochs.
 
 
 
-1. <a name="_int_evdyielt"></a>Result/Output
+# 5. <a name="_int_evdyielt"></a>Result/Output
 
 <a name="_int_izzzcsaj"></a>Note that we would have a higher validation accuracy and reliability, where we have more data inputs. Below is the output for each epoch where we can see training and validation accuracy for each epoch and training loss and validation loss. We can observe validation accuracy of 70% and validation of 0.93.
 
